@@ -1,20 +1,32 @@
 import * as React from 'react';
-import './App.css';
-
-import logo from './logo.svg';
+import CodeView from './components/CodeView';
+import { Container, Row, Col } from 'reactstrap';
 
 class App extends React.Component {
   public render() {
+
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.tsx</code> and save to reload.
-        </p>
-      </div>
+      <Container style={{padding: 0}} fluid={true}>
+        <Row>
+          <Col>Clinical Notes View</Col>
+          <Col>
+            <CodeView codes={[
+              {
+                id: "012.84", 
+                message: "Other specified respiratory tuberculosis, tubercle bacilli not found (in sputum) by microscopy, but found by bacterial culture"
+              },
+              {
+                id: "41.4", 
+                message: "Excision or destruction of lesion or tissue of spleen"
+              },
+              {
+                id: "426.51", 
+                message: "Right bundle branch block and left posterior fascicular block"
+              },
+            ]}/>
+          </Col>
+        </Row>
+      </Container>
     );
   }
 }

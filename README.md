@@ -4,17 +4,14 @@ This is a viz tool for CAML.
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
-## Table of Contents
-
-- [Available Scripts](#available-scripts)
-  - [npm start](#npm-start)
-  - [npm test](#npm-test)
-  - [npm run build](#npm-run-build)
-  - [npm run eject](#npm-run-eject)
-  
+ 
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `yarn install`
+
+Installs project dependencies
 
 ### `yarn start`
 
@@ -27,7 +24,6 @@ You will also see any lint errors in the console.
 ### `yarn test`
 
 Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](#running-tests) for more information.
 
 ### `yarn run build`
 

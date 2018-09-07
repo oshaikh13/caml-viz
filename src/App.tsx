@@ -1,15 +1,18 @@
 import * as React from 'react';
 import CodeView from './components/CodeView';
+import ClinicalNotesView from './components/ClinicalNotesView';
 import { Container, Row, Col } from 'reactstrap';
 
 class App extends React.Component {
   public render() {
 
     return (
-      <Container style={{padding: 0}} fluid={true}>
+      <Container fluid={true}>
         <Row>
-          <Col>Clinical Notes View</Col>
-          <Col>
+          <Col style={{padding: 0}}>
+            <ClinicalNotesView />
+          </Col>
+          <Col style={{padding: 0}}>
             <CodeView codes={[
               {
                 id: "012.84", 

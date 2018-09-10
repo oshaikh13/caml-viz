@@ -1,28 +1,36 @@
-import ReactQuill from 'react-quill';
 import * as React from 'react';
 
+import PredictionLabel from '../utils/PredictionLabel';
+import { Container, Row, Col } from 'reactstrap';
+
 export interface Props {
+  predictionLabels: Array<PredictionLabel>
 }
 
-interface State {
+export interface State {
   text: string
 }
 
 export default class ClinicalNotesView extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props)
-    this.state = { text: '' } // You can also pass a Quill Delta here
-    this.handleChange = this.handleChange.bind(this)
-  }
 
-  handleChange(value: string) {
-    this.setState({ text: value })
+  constructor(props: Props) {
+    super(props);
+    this.state = {
+      text: 'la di la, la di la di la...'
+    }
   }
 
   render() {
     return (
-      <ReactQuill value={this.state.text}
-                  onChange={this.handleChange} />
+      <Container fluid={true}>
+        <Row style={{paddingTop: 10}}>
+          <Col>
+            <p>
+              {this.state.text}
+            </p>
+          </Col>
+        </Row>
+      </Container>
     )
   }
 }

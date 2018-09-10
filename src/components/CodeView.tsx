@@ -9,18 +9,20 @@ import {
   ListGroupItemText 
 } from 'reactstrap';;
 
+import PredictionLabel from '../utils/PredictionLabel';
+
 export interface Props {
-  codes: Array<any>
+  predictionLabels: Array<PredictionLabel>
 }
 
 class CodeView extends React.Component<Props, object> {
   
   render () {
-    const codeItems = this.props.codes.map((code, key) => 
+    const codeItems = this.props.predictionLabels.map((prediction, key) => 
       <ListGroupItem key={key} tag="a" href="#" action>
-        <ListGroupItemHeading>{code.id}</ListGroupItemHeading>
+        <ListGroupItemHeading>{prediction.code}</ListGroupItemHeading>
         <ListGroupItemText>
-          {code.message}
+          {prediction.codeDescription}
         </ListGroupItemText>
       </ListGroupItem>
     );  

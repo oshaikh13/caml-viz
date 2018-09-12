@@ -16,6 +16,8 @@ class App extends React.Component<any, AppState> {
     this.state = {
       predictionLabels: []
     }
+    this.updatePredictionLabelState = this.updatePredictionLabelState.bind(this)
+
   }
 
   componentDidMount() {
@@ -42,6 +44,10 @@ class App extends React.Component<any, AppState> {
     this.setState({predictionLabels})
   }
 
+  updatePredictionLabelState (newPredictionLabels: Array<PredictionLabel>) {
+    this.setState({predictionLabels: newPredictionLabels});
+  }
+
   public render() {
 
     return (
@@ -51,7 +57,8 @@ class App extends React.Component<any, AppState> {
             <ClinicalNotesView predictionLabels={this.state.predictionLabels}/>
           </Col>
           <Col style={{padding: 0}}>
-            <CodeView predictionLabels={this.state.predictionLabels}/>
+            <CodeView updatePredictionLabelState={this.updatePredictionLabelState} 
+                      predictionLabels={this.state.predictionLabels}/>
           </Col>
         </Row>
       </Container>

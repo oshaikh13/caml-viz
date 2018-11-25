@@ -4,6 +4,7 @@ import ClinicalNotesView from './components/ClinicalNotesView';
 import { Container, Row, Col } from 'reactstrap';
 import PredictionLabel from './utils/PredictionLabel';
 import { getCodedKGrams } from './actions/clinicalNotes'
+import note from './consts';
 
 interface AppState { 
   predictionLabels: Array<PredictionLabel>
@@ -21,27 +22,12 @@ class App extends React.Component<any, AppState> {
   }
 
   componentDidMount() {
-    getCodedKGrams("this does nothing")
-    const predictionLabels = 
-      [
-        {
-          code: "012.84", 
-          codeDescription: "Other specified respiratory tuberculosis, tubercle bacilli not found (in sputum) by microscopy, but found by bacterial culture",
-          kgram: "one two"
-        },
-        {
-          code: "41.4", 
-          codeDescription: "Excision or destruction of lesion or tissue of spleen",
-          kgram: "three four"
+    getCodedKGrams(note).then((response) => {
+      console.log(response)
+      let predictionLabels = response.data;
+      this.setState({predictionLabels})
+    })
 
-        },
-        {
-          code: "41.04", 
-          codeDescription: "Right bundle branch block and left posterior fascicular block",
-          kgram: "five six"
-        },
-    ]
-    this.setState({predictionLabels})
   }
 
   updatePredictionLabelState (newPredictionLabels: Array<PredictionLabel>) {

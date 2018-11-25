@@ -3,6 +3,7 @@ import * as React from 'react';
 import PredictionLabel from '../utils/PredictionLabel';
 import Highlighter from "react-highlight-words";
 import { Container, Row, Col } from 'reactstrap';
+import note from '../consts';
 
 export interface Props {
   predictionLabels: Array<PredictionLabel>
@@ -17,7 +18,7 @@ export default class ClinicalNotesView extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
-      text: 'hello. one two lal la la three four la la la five six humpty dumpty'
+      text: note
     }
   }
 

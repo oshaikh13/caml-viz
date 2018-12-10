@@ -23,11 +23,18 @@ export default class ClinicalNotesView extends React.Component<Props, State> {
   }
 
   render() {
-    console.log("render")
-    const wordsToHighlight = this.props.predictionLabels.reduce((curr, next) => {
-      if (next.highlighted && !curr.includes(next.kgram)) curr.push(next.kgram);
-      return curr;
-    }, Array<string>())
+    const wordsToHighlight = Array<string>();
+    this.props.predictionLabels.forEach((label) => {
+      if (label.highlighted) {
+        label.kgram.forEach((word) => {
+          var nextWord = word;
+          if (nextWord.length == 1) {
+            nextWord = " " + nextWord + " ";
+          }
+          if (!wordsToHighlight.includes(nextWord)) wordsToHighlight.push(nextWord);
+        }) 
+      }
+    });
 
     return (
       <Container fluid={true}>
